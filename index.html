@@ -75,40 +75,164 @@
             </div>
 
             <span class="field-label"
-              >法人／個人<span class="required-mark">*</span></span
+              >送り主<span class="required-mark">*</span></span
             >
             <div class="radio-group" id="customerTypeGroup">
               <label class="radio-row">
                 <input type="radio" name="customerType" value="personal" />
-                <span>個人</span>
+                <span>個人利用</span>
               </label>
               <label class="radio-row">
                 <input type="radio" name="customerType" value="corporate" />
-                <span>法人</span>
+                <span>法人利用</span>
               </label>
             </div>
-
-            <span class="field-label" id="planLabel" hidden>プラン</span>
-            <div class="plan-group" id="planGroup" hidden>
+            <span class="field-label field-label--top mobile-stack-full" id="planLabel" hidden>プラン<span class="required-mark">*</span></span>
+            <div class="plan-group mobile-stack-full" id="planGroup" hidden>
               <div class="radio-group">
-                <label class="radio-row">
-                  <input type="radio" name="plan" value="LOGIFIT" />
-                  <span class="plan-tooltip" data-tooltip="検品・梱包・書類作成まですべて弊社で対応
-発送にかかる手間を最大限なくした、フルサポートサービスです✨">LOGIFIT<span class="tooltip-indicator" aria-hidden="true"></span></span>
+                <label class="radio-row plan-option" data-plan-scope="personal">
+                  <input type="radio" name="plan" value="worldShip" />
+                  <span>ワールドship</span>
                 </label>
-                <label class="radio-row">
+                <label class="radio-row plan-option" data-plan-scope="corporate">
+                  <input type="radio" name="plan" value="LOGIFIT" />
+                  <span>LOGIFIT</span>
+                </label>
+                <label class="radio-row plan-option" data-plan-scope="corporate">
                   <input type="radio" name="plan" value="worldShipForBiz" />
-                  <span class="plan-tooltip" data-tooltip="弊社に送っていただいた荷物をそのまま転送します ">ワールドship for Biz<span class="tooltip-indicator" aria-hidden="true"></span></span>
+                  <span>ワールドship for Biz</span>
                 </label>
               </div>
-              <p class="field-note">
-                <a
-                  href="https://worldshift-inc.jp/allynair/"
-                  target="_blank"
-                  rel="noreferrer"
-                  >※プランについてはこちらをご確認ください</a
-                >
+            </div>
+            <section
+              class="plan-image-section plan-image-section--full mobile-stack-full"
+              id="planImageSection"
+              aria-label="プラン説明画像"
+              hidden
+            >
+              <img
+                src="ワールドship.png"
+                alt="ワールドship プラン説明画像"
+                class="plan-image"
+                id="planImageWorldShip"
+                hidden
+              />
+              <img
+                src="LOGIFIT.png"
+                alt="LOGIFIT プラン説明画像"
+                class="plan-image"
+                id="planImageLogifit"
+                hidden
+              />
+              <img
+                src="ワールドshipforbiz.png"
+                alt="ワールドship for Biz プラン説明画像"
+                class="plan-image"
+                id="planImageWorldShipForBiz"
+                hidden
+              />
+            </section>
+          </div>
+          <div class="input-grid input-grid--additional">
+            <div class="field-label-stack mobile-stack-full">
+              <span class="field-label field-label--top">カテゴリー<span class="required-mark">*</span></span>
+              <p class="field-note field-note--inline field-note--under-label">（複数選択可）</p>
+            </div>
+            <div class="category-field mobile-stack-full">
+              <div class="category-grid" id="categoryGroup">
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="食品・飲料関連" />
+                  <span>食品・飲料関連</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="美容・化粧品関連" />
+                  <span>美容・化粧品関連</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="日用品・生活用品" />
+                  <span>日用品・生活用品</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="雑貨・ギフト・文具" />
+                  <span>雑貨・ギフト・文具</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="アパレル・ファッション" />
+                  <span>アパレル・ファッション</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="ベビー・キッズ・おもちゃ" />
+                  <span>ベビー・キッズ・おもちゃ</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="家電・電子機器" />
+                  <span>家電・電子機器</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="健康・医療関連" />
+                  <span>健康・医療関連</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="ペット関連" />
+                  <span>ペット関連</span>
+                </label>
+                <label class="checkbox-row">
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="趣味・アウトドア・スポーツ"
+                  />
+                  <span>趣味・アウトドア・スポーツ</span>
+                </label>
+                <label class="checkbox-row">
+                  <input type="checkbox" name="category" value="工業・業務・B2B製品" />
+                  <span>工業・業務・B2B製品</span>
+                </label>
+                <label class="checkbox-row category-other-row">
+                  <input type="checkbox" id="categoryOtherCheck" name="category" value="その他" />
+                  <span>その他</span>
+                  <span id="categoryOtherInputWrap" hidden>
+                    <input
+                      id="categoryOtherText"
+                      class="field-input field-input--category-other"
+                      type="text"
+                      maxlength="80"
+                      placeholder="内容を入力"
+                      disabled
+                    />
+                  </span>
+                </label>
+              </div>
+              <p class="field-note field-note--alert" id="categoryWarning" hidden>
+                事前に発送可能かご確認ください
               </p>
+            </div>
+
+            <label class="field-label" for="usagePurpose">利用用途<span class="required-mark">*</span></label>
+            <div class="usage-field">
+              <div class="select-wrap">
+                <select id="usagePurpose" class="field-select field-select--left">
+                  <option value="">選択してください</option>
+                  <option value="個人利用">個人利用</option>
+                  <option value="プレゼント">プレゼント</option>
+                  <option value="私物運搬">私物運搬</option>
+                  <option value="引っ越し">引っ越し</option>
+                  <option value="返品">返品</option>
+                  <option value="商用利用">商用利用</option>
+                  <option value="販売目的">販売目的</option>
+                  <option value="商材/備品運搬">商材/備品運搬</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+              <input
+                id="usagePurposeOther"
+                class="field-input usage-other-input"
+                type="text"
+                maxlength="80"
+                placeholder="その他の用途を入力"
+                hidden
+                disabled
+              />
             </div>
           </div>
         </section>
@@ -150,7 +274,7 @@
                   <input type="checkbox" id="cargoInsurance" />
                   <span>利用する</span>
                 </label>
-                <div class="insurance-input">
+                <div class="insurance-input" id="insuredValueWrap" hidden>
                   <label for="insuredValue">商品価格合計</label>
                   <input
                     id="insuredValue"
@@ -158,6 +282,7 @@
                     type="number"
                     min="0"
                     step="1"
+                    inputmode="decimal"
                     placeholder=""
                     disabled
                   />
@@ -191,15 +316,18 @@
 
         <section class="cta-row" hidden>
           <div class="cta-row-group">
-            <a
-              class="cta-button cta-button--primary"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd0F2BwC-SIciWrrHSJ9OIwLEU0uJ-9-HHsuqvmxyJbzGJIzQ/viewform"
-              target="_blank"
-              rel="noreferrer"
-              id="applyLink"
-            >
-              申し込みはこちら
-            </a>
+            <div class="cta-hint-wrap">
+              <a
+                class="cta-button cta-button--primary"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd0F2BwC-SIciWrrHSJ9OIwLEU0uJ-9-HHsuqvmxyJbzGJIzQ/viewform"
+                target="_blank"
+                rel="noreferrer"
+                id="applyLink"
+              >
+                申し込みはこちら
+              </a>
+              <p class="cta-hint">⇧かんたん入力でまずはお申し込み！⇧</p>
+            </div>
           </div>
           <div class="cta-row-group">
             <button class="secondary-button" type="button" id="retryButton">
@@ -214,13 +342,43 @@
             >
               見積り結果についてお問合せ
             </a>
-            <div class="pdf-save-hint-wrap">
-              <button class="secondary-button" type="button" id="estimateButton">
-                結果をPDFで出力
-              </button>
-              <p class="pdf-save-hint">⇧見積結果の保存はこちらから⇧</p>
-            </div>
+            <button class="secondary-button" type="button" id="estimateButton">
+              結果をPDFで出力
+            </button>
           </div>
+        </section>
+
+        <section class="log-panel" aria-live="polite">
+          <h2 class="log-title">通信・PDFデバッグログ</h2>
+          <pre class="log-body" id="logOutput">待機中...</pre>
+        </section>
+
+        <section
+          class="comparison-image-section"
+          id="comparisonImageSection"
+          aria-label="送料比較イメージ"
+          hidden
+        >
+          <img
+            src=""
+            alt="送料比較イメージ"
+            class="comparison-image"
+            id="comparisonImage"
+          />
+        </section>
+
+        <section
+          class="comparison-image-section"
+          id="startSimulationImageSection"
+          aria-label="見積り算出イメージ"
+          hidden
+        >
+          <img
+            src=""
+            alt="見積り算出イメージ"
+            class="comparison-image"
+            id="startSimulationImage"
+          />
         </section>
 
         <section class="disclaimer">
@@ -268,9 +426,19 @@
           </div>
         </div>
       </div>
+      <div class="image-modal-backdrop" id="imageModal" hidden>
+        <div class="image-modal-card" role="dialog" aria-modal="true" aria-label="画像の拡大表示">
+          <button class="image-modal-close" type="button" id="closeImageModal">
+            ×
+          </button>
+          <img id="imageModalPreview" class="image-modal-preview" src="" alt="" />
+        </div>
+      </div>
     </main>
 
     <script src="countries.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <template id="boxTemplate">
       <div class="box-card">
         <div class="box-card-header">
@@ -283,10 +451,10 @@
           </div>
         </div>
         <div class="box-grid">
-          <span class="field-label"
+          <span class="field-label mobile-stack-full"
             >サイズ<span class="required-mark">*</span></span
           >
-          <div class="dimension-group">
+          <div class="dimension-group mobile-stack-full">
             <div class="dimension-row">
               <input
                 class="field-input field-input--dimension box-length"
@@ -333,19 +501,24 @@
               inputmode="decimal"
             />
             <span class="unit">kg</span>
-            <p class="field-note field-note--alert box-limit-error is-hidden">
-              規定超過となるので画面下部の「お問合せはこちら」からご連絡ください
-            </p>
           </div>
+          <p class="field-note field-note--alert box-limit-error box-limit-error-row is-hidden">
+            規定超過となるので画面下部の「お問合せはこちら」からご連絡ください
+          </p>
 
           <label class="field-label">商品数</label>
           <div class="box-product-field">
-            <input
-              class="field-input field-input--narrow box-product-count"
-              type="number"
-              min="0"
-              value="0"
-            />
+            <div class="product-count-row">
+              <input
+                class="field-input field-input--narrow box-product-count"
+                type="number"
+                min="0"
+                step="1"
+                inputmode="decimal"
+                value="0"
+              />
+              <span class="unit">点</span>
+            </div>
             <p class="field-note field-note--alert box-product-error is-hidden">
               ※商品数を入力ください
             </p>
@@ -363,7 +536,7 @@
             <span>利用する</span>
           </label>
 
-          <span class="field-label"><span class="info-tooltip" tabindex="0" data-tooltip="海外発送向けの丈夫な専用段ボールです">輸出用段ボール<span class="tooltip-indicator" aria-hidden="true">ℹ️</span></span></span>
+          <span class="field-label"><span class="info-tooltip" tabindex="0" data-tooltip="海外発送向けの丈夫な専用段ボールです"><span class="box-export-label-text">輸出用<wbr />段ボール</span><span class="tooltip-indicator" aria-hidden="true">ℹ️</span></span></span>
           <label class="checkbox-row">
             <input type="checkbox" class="box-export" />
             <span>利用する</span>
@@ -372,6 +545,11 @@
       </div>
     </template>
     <script>
+      const getLastElementById = (id) => {
+        const safeId = String(id).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+        const elements = document.querySelectorAll(`[id="${safeId}"]`);
+        return elements[elements.length - 1] || null;
+      };
       const countryInput = document.getElementById("country");
       const totalOutput = document.getElementById("totalPrice");
       const totalUnit = document.getElementById("totalUnit");
@@ -383,12 +561,29 @@
       const inputScreen = document.getElementById("inputScreen");
       const resultScreen = document.getElementById("resultScreen");
       const customerTypeGroup = document.getElementById("customerTypeGroup");
+      const categoryGroup = getLastElementById("categoryGroup");
+      const categoryOtherCheck = getLastElementById("categoryOtherCheck");
+      const categoryOtherText = getLastElementById("categoryOtherText");
+      const categoryOtherInputWrap = getLastElementById("categoryOtherInputWrap");
+      const categoryWarning = getLastElementById("categoryWarning");
+      const usagePurposeInput = getLastElementById("usagePurpose");
+      const usagePurposeOtherInput = getLastElementById("usagePurposeOther");
       const planLabel = document.getElementById("planLabel");
       const planGroup = document.getElementById("planGroup");
+      const planImageSection = document.getElementById("planImageSection");
+      const planImageWorldShip = document.getElementById("planImageWorldShip");
+      const planImageLogifit = document.getElementById("planImageLogifit");
+      const planImageWorldShipForBiz = document.getElementById(
+        "planImageWorldShipForBiz"
+      );
+      const planOptions = Array.from(
+        planGroup?.querySelectorAll(".plan-option") || []
+      );
       const invoiceInput = document.getElementById("invoiceIssue");
       const returnInsuranceInput = document.getElementById("returnInsurance");
       const cargoInsuranceInput = document.getElementById("cargoInsurance");
       const insuredValueInput = document.getElementById("insuredValue");
+      const insuredValueWrap = document.getElementById("insuredValueWrap");
       const boxList = document.getElementById("boxList");
       const boxTemplate = document.getElementById("boxTemplate");
       const addBoxButton = document.getElementById("addBoxButton");
@@ -401,7 +596,15 @@
       const estimateInquiryLink = document.getElementById("estimateInquiryLink");
       const companyNameInput = document.getElementById("companyName");
       const companyError = document.getElementById("companyError");
-      const logOutput = document.getElementById("logOutput");
+      const imageModal = document.getElementById("imageModal");
+      const closeImageModal = document.getElementById("closeImageModal");
+      const imageModalPreview = document.getElementById("imageModalPreview");
+      const comparisonImageSection = document.getElementById("comparisonImageSection");
+      const comparisonImage = document.getElementById("comparisonImage");
+      const startSimulationImageSection = document.getElementById(
+        "startSimulationImageSection"
+      );
+      const startSimulationImage = document.getElementById("startSimulationImage");
       const inputError = document.getElementById("inputError");
       const ctaRow = document.querySelector(".cta-row");
       const totalRow = document.querySelector(".total-row");
@@ -421,6 +624,9 @@
         customerType: "entry.1401542135",
         serviceName: "entry.1029867203",
         countryName: "entry.1267146174",
+        category: "entry.1366341936",
+        categoryOtherResponse: "entry.1366341936.other_option_response",
+        usagePurpose: "entry.1726087180",
         packing: "entry.1339505299",
         invoice: "entry.741660248",
         insuredValue: "entry.295734913",
@@ -509,6 +715,24 @@
         },
       ];
       const EXTRA_BOX_INFO_QUERY_PARAM = "entry.350946257";
+      const COMPARISON_IMAGE_MAP = {
+        personal: {
+          src: "比較.png",
+          alt: "送料比較（ワールドship）",
+        },
+        LOGIFIT: {
+          src: "比較.png",
+          alt: "送料比較（LOGIFIT）",
+        },
+        worldShipForBiz: {
+          src: "比較.png",
+          alt: "送料比較（ワールドship for Biz）",
+        },
+      };
+      const START_SIMULATION_IMAGE = {
+        src: "比較.png",
+        alt: "送料比較（見積り算出）",
+      };
 
       const PRICE_PER_KG = 2000;
       const VOLUME_DIVISOR = 5000;
@@ -534,18 +758,31 @@
       const MAX_LENGTH_PLUS_GIRTH_CM = 400;
       const MAX_BOX_COUNT = 100;
       const MAX_BOX_COUNT_MESSAGE = "箱情報は最大100箱まで追加できます";
+      const CATEGORY_WARNING_TARGETS = ["食品・飲料関連", "美容・化粧品関連", "健康・医療関連"];
 
       const formatNumber = (value) => value.toLocaleString("ja-JP");
       const clamp = (value, min, max) =>
         Math.min(max, Math.max(min, value));
+      const removeLegacyDebugPanel = () => {
+        document.querySelectorAll(".log-panel, #logOutput").forEach((element) => {
+          element.remove();
+        });
+        document.querySelectorAll("h1, h2, h3, p, div").forEach((element) => {
+          if (element.textContent?.trim() !== "通信・PDFデバッグログ") {
+            return;
+          }
+          const section = element.closest("section");
+          if (section) {
+            section.remove();
+            return;
+          }
+          element.remove();
+        });
+      };
+      removeLegacyDebugPanel();
       const logMessage = (message) => {
-        if (!logOutput) {
-          return;
-        }
         const timestamp = new Date().toLocaleTimeString("ja-JP");
-        const current =
-          logOutput.textContent === "待機中..." ? "" : logOutput.textContent;
-        logOutput.textContent = `${current}${current ? "\n" : ""}${timestamp} ${message}`;
+        console.info(`${timestamp} ${message}`);
       };
       const logErrorDetails = (label, error) => {
         if (!error) {
@@ -567,20 +804,45 @@
         logErrorDetails("unhandledrejection", event.reason);
       });
 
+      const initDebugSteps = [];
+      const markInitStep = (label) => {
+        const message = `[init] ${label}`;
+        initDebugSteps.push(message);
+        window.__estimateInitSteps = initDebugSteps;
+        console.info(message);
+      };
+      const runInitStep = (label, fn) => {
+        markInitStep(`${label}:start`);
+        try {
+          const result = fn();
+          markInitStep(`${label}:ok`);
+          return result;
+        } catch (error) {
+          const errorMessage =
+            error && typeof error === "object" && "message" in error
+              ? error.message
+              : String(error);
+          markInitStep(`${label}:fail:${errorMessage}`);
+          throw error;
+        }
+      };
+
       const countryOptions = Array.isArray(COUNTRY_NAMES)
         ? COUNTRY_NAMES
         : [];
-      const emptyCountryOption = document.createElement("option");
-      emptyCountryOption.value = "";
-      emptyCountryOption.textContent = "";
-      emptyCountryOption.selected = true;
-      countryInput.appendChild(emptyCountryOption);
+      runInitStep("country-options", () => {
+        const emptyCountryOption = document.createElement("option");
+        emptyCountryOption.value = "";
+        emptyCountryOption.textContent = "選択してください";
+        emptyCountryOption.selected = true;
+        countryInput.appendChild(emptyCountryOption);
 
-      countryOptions.forEach((country) => {
-        const option = document.createElement("option");
-        option.value = country.value;
-        option.textContent = country.label;
-        countryInput.appendChild(option);
+        countryOptions.forEach((country) => {
+          const option = document.createElement("option");
+          option.value = country.value;
+          option.textContent = country.label;
+          countryInput.appendChild(option);
+        });
       });
 
       const updateChinaNotice = () => {
@@ -592,6 +854,16 @@
         const shouldShow =
           selectedLabel.includes("中国北部") || selectedLabel.includes("中国南部");
         chinaNotice.hidden = !shouldShow;
+      };
+
+      const removeDuplicateAdditionalInputSections = () => {
+        const sections = Array.from(
+          document.querySelectorAll(".input-grid--additional")
+        );
+        if (sections.length <= 1) {
+          return;
+        }
+        sections.slice(0, -1).forEach((section) => section.remove());
       };
 
       const isOtherCountrySelected = () =>
@@ -606,6 +878,57 @@
 
       const getCustomerType = () =>
         document.querySelector('input[name="customerType"]:checked')?.value;
+
+      const getSelectedCategories = () =>
+        Array.from(
+          categoryGroup?.querySelectorAll('input[name="category"]:checked') || []
+        ).map((input) =>
+          input.value === "その他" && categoryOtherText?.value.trim()
+            ? `その他（${categoryOtherText.value.trim()}）`
+            : input.value
+        );
+
+      const getCategoryPrefillValues = () => {
+        const selectedInputs = Array.from(
+          categoryGroup?.querySelectorAll('input[name="category"]:checked') || []
+        );
+        const values = [];
+        let otherText = "";
+        selectedInputs.forEach((input) => {
+          if (input.value === "その他") {
+            values.push("__other_option__");
+            otherText = categoryOtherText?.value.trim() || "";
+            return;
+          }
+          values.push(input.value);
+        });
+        return { values, otherText };
+      };
+
+      const appendCategoryAndUsagePrefill = (params) => {
+        const categoryPrefill = getCategoryPrefillValues();
+        if (categoryPrefill.values.length > 0) {
+          categoryPrefill.values.forEach((value) => {
+            params.append(FORM_QUERY_PARAMS.category, value);
+          });
+        }
+        if (categoryPrefill.otherText) {
+          params.set(FORM_QUERY_PARAMS.categoryOtherResponse, categoryPrefill.otherText);
+        }
+
+        const usagePurpose = usagePurposeInput?.value || "";
+        if (!usagePurpose) {
+          return;
+        }
+        if (usagePurpose === "その他") {
+          const usagePurposeOtherText = usagePurposeOtherInput?.value.trim() || "";
+          if (usagePurposeOtherText) {
+            params.set(FORM_QUERY_PARAMS.usagePurpose, usagePurposeOtherText);
+          }
+          return;
+        }
+        params.set(FORM_QUERY_PARAMS.usagePurpose, usagePurpose);
+      };
 
       const getSelectedPlan = () =>
         document.querySelector('input[name="plan"]:checked')?.value || "";
@@ -646,7 +969,7 @@
 
         const customerType = getCustomerType();
         if (customerType === "corporate") {
-          params.set(FORM_QUERY_PARAMS.customerType, "法人");
+          params.set(FORM_QUERY_PARAMS.customerType, "法人利用");
           const selectedPlan = getSelectedPlan();
           if (selectedPlan === "LOGIFIT") {
             params.set(FORM_QUERY_PARAMS.serviceName, "LOGIFIT");
@@ -654,7 +977,7 @@
             params.set(FORM_QUERY_PARAMS.serviceName, "ワールドship for Biz");
           }
         } else if (customerType === "personal") {
-          params.set(FORM_QUERY_PARAMS.customerType, "個人");
+          params.set(FORM_QUERY_PARAMS.customerType, "個人利用");
         }
 
         const selectedCountryLabel =
@@ -662,6 +985,8 @@
         if (selectedCountryLabel) {
           params.set(FORM_QUERY_PARAMS.countryName, selectedCountryLabel);
         }
+
+        appendCategoryAndUsagePrefill(params);
 
         const boxPrefillValues = getBoxPrefillValues();
         boxPrefillValues.forEach((box, index) => {
@@ -727,23 +1052,178 @@
           countryInput.selectedOptions[0]?.textContent?.trim() || "韓国";
         params.set(ESTIMATE_INQUIRY_QUERY_PARAMS.countryName, selectedCountryLabel);
 
+        appendCategoryAndUsagePrefill(params);
+
         return `${ESTIMATE_INQUIRY_LINK_BASE}?${params.toString()}`;
       };
 
       const updatePlanVisibility = () => {
-        const isCorporate = getCustomerType() === "corporate";
-        planLabel.hidden = !isCorporate;
-        planGroup.hidden = !isCorporate;
-        if (!isCorporate) {
-          const selectedPlan = getSelectedPlan();
-          if (selectedPlan) {
-            document
-              .querySelectorAll('input[name="plan"]')
-              .forEach((input) => {
-                input.checked = false;
-              });
+        const customerType = getCustomerType();
+        const hasCustomerType =
+          customerType === "personal" || customerType === "corporate";
+        const visiblePlanScopes =
+          customerType === "personal"
+            ? ["personal"]
+            : customerType === "corporate"
+              ? ["corporate"]
+              : [];
+        const visibleScopeSet = new Set(visiblePlanScopes);
+        let hasCheckedVisiblePlan = false;
+
+        planLabel.hidden = !hasCustomerType;
+        planGroup.hidden = !hasCustomerType;
+
+        planOptions.forEach((option) => {
+          const scope = option.dataset.planScope || "";
+          const input = option.querySelector('input[name="plan"]');
+          const isVisible = visibleScopeSet.has(scope);
+          option.hidden = !isVisible;
+          if (!input) {
+            return;
+          }
+          input.disabled = !isVisible;
+          if (!isVisible && input.checked) {
+            input.checked = false;
+          }
+          if (isVisible && input.checked) {
+            hasCheckedVisiblePlan = true;
+          }
+        });
+
+        if (customerType === "personal" && !hasCheckedVisiblePlan) {
+          const personalPlanInput = document.querySelector(
+            'input[name="plan"][value="worldShip"]'
+          );
+          if (personalPlanInput) {
+            personalPlanInput.checked = true;
           }
         }
+      };
+
+      const updatePlanImages = () => {
+        const customerType = getCustomerType();
+        const showPersonal = customerType === "personal";
+        const showCorporate = customerType === "corporate";
+        const hasVisibleImage = showPersonal || showCorporate;
+        const selectedPlan = getSelectedPlan();
+
+        if (planImageSection) {
+          planImageSection.hidden = !hasVisibleImage;
+        }
+        if (planImageWorldShip) {
+          planImageWorldShip.hidden = !showPersonal;
+        }
+        if (planImageLogifit) {
+          planImageLogifit.hidden = !showCorporate;
+        }
+        if (planImageWorldShipForBiz) {
+          planImageWorldShipForBiz.hidden = !showCorporate;
+        }
+
+        if (planImageWorldShip) {
+          planImageWorldShip.classList.toggle(
+            "plan-image--selected",
+            showPersonal
+          );
+        }
+        if (planImageLogifit) {
+          const isSelected = selectedPlan === "LOGIFIT";
+          planImageLogifit.classList.toggle("plan-image--selected", isSelected);
+        }
+        if (planImageWorldShipForBiz) {
+          const isSelected = selectedPlan === "worldShipForBiz";
+          planImageWorldShipForBiz.classList.toggle(
+            "plan-image--selected",
+            isSelected
+          );
+        }
+      };
+
+      const updateCategoryOtherState = () => {
+        const enabled = categoryOtherCheck?.checked;
+        if (!categoryOtherText) {
+          return;
+        }
+        if (categoryOtherInputWrap) {
+          categoryOtherInputWrap.hidden = !enabled;
+        }
+        categoryOtherText.disabled = !enabled;
+        if (!enabled) {
+          categoryOtherText.value = "";
+        }
+      };
+
+      const updateCategoryWarning = () => {
+        if (!categoryWarning) {
+          return;
+        }
+        const selectedCategoryValues = Array.from(
+          categoryGroup?.querySelectorAll('input[name="category"]:checked') || []
+        ).map((input) => input.value);
+        categoryWarning.hidden = !selectedCategoryValues.some((value) =>
+          CATEGORY_WARNING_TARGETS.includes(value)
+        );
+      };
+
+      const updateUsageOtherState = () => {
+        const enabled = usagePurposeInput?.value === "その他";
+        if (!usagePurposeOtherInput) {
+          return;
+        }
+        usagePurposeOtherInput.hidden = !enabled;
+        usagePurposeOtherInput.disabled = !enabled;
+        if (!enabled) {
+          usagePurposeOtherInput.value = "";
+        }
+      };
+
+      const getComparisonImageConfig = () => {
+        const customerType = getCustomerType();
+        if (customerType === "personal") {
+          return COMPARISON_IMAGE_MAP.personal;
+        }
+        if (customerType === "corporate") {
+          const selectedPlan = getSelectedPlan();
+          if (selectedPlan === "LOGIFIT") {
+            return COMPARISON_IMAGE_MAP.LOGIFIT;
+          }
+          if (selectedPlan === "worldShipForBiz") {
+            return COMPARISON_IMAGE_MAP.worldShipForBiz;
+          }
+        }
+        return null;
+      };
+
+      const updateComparisonImage = () => {
+        if (!comparisonImageSection || !comparisonImage) {
+          return;
+        }
+        const imageConfig = getComparisonImageConfig();
+        if (!imageConfig) {
+          comparisonImageSection.hidden = true;
+          comparisonImage.classList.remove("comparison-image--selected");
+          return;
+        }
+        comparisonImage.src = imageConfig.src;
+        comparisonImage.alt = imageConfig.alt;
+        comparisonImage.classList.add("comparison-image--selected");
+        comparisonImageSection.hidden = false;
+      };
+
+      const showStartSimulationImage = () => {
+        if (!startSimulationImageSection || !startSimulationImage) {
+          return;
+        }
+        startSimulationImage.src = START_SIMULATION_IMAGE.src;
+        startSimulationImage.alt = START_SIMULATION_IMAGE.alt;
+        startSimulationImageSection.hidden = false;
+      };
+
+      const hideStartSimulationImage = () => {
+        if (!startSimulationImageSection) {
+          return;
+        }
+        startSimulationImageSection.hidden = true;
       };
 
       const updateRemoveButtons = () => {
@@ -751,7 +1231,7 @@
         boxes.forEach((box, index) => {
           const title = box.querySelector(".box-card-title");
           if (title) {
-            title.textContent = `${index + 1}箱目情報`;
+            title.textContent = `${index + 1}箱目情報📦`;
           }
           const removeButton = box.querySelector(".remove-box-button");
           if (removeButton) {
@@ -832,10 +1312,15 @@
         updateBoxLimitErrors();
       };
 
-      addBoxButton.addEventListener("click", addBox);
+      runInitStep("bind-add-box", () => {
+        addBoxButton.addEventListener("click", addBox);
+      });
 
       const updateCargoInsuranceState = () => {
         const enabled = cargoInsuranceInput.checked;
+        if (insuredValueWrap) {
+          insuredValueWrap.hidden = !enabled;
+        }
         insuredValueInput.disabled = !enabled;
         insuredValueInput.required = enabled;
         if (!enabled) {
@@ -931,6 +1416,7 @@
         updateBoxLimitErrors();
         calculate();
         resetSimulationIfNeeded();
+        updateComparisonImage();
       };
 
       cargoInsuranceInput.addEventListener("change", () => {
@@ -1005,6 +1491,10 @@
         if (simulateRow) {
           simulateRow.hidden = false;
         }
+        if (inputScreen) {
+          inputScreen.hidden = false;
+        }
+        updateComparisonImage();
       };
       let hasSimulationResult = false;
       let latestCustomerNumber = "";
@@ -1139,48 +1629,86 @@
         return { billable: billableTotal, total, hasError: false };
       };
 
-      [invoiceInput, returnInsuranceInput, insuredValueInput].forEach(
-        (input) => {
-          input.addEventListener("change", handleInputChange);
-          input.addEventListener("input", handleInputChange);
-        }
-      );
-      countryInput.addEventListener("change", () => {
-        updateChinaNotice();
-        updateOtherCountryState();
-        handleInputChange();
-      });
-      countryInput.addEventListener("input", () => {
-        updateChinaNotice();
-        updateOtherCountryState();
-      });
-      customerTypeGroup.addEventListener("change", () => {
-        updatePlanVisibility();
-        handleInputChange();
-      });
-      planGroup.addEventListener("change", handleInputChange);
-      boxList.addEventListener("change", handleInputChange);
-      boxList.addEventListener("input", handleInputChange);
-      boxList.addEventListener("focusout", (event) => {
-        enforceBoxInputDigitLimits(event.target);
-        handleInputChange();
+      runInitStep("bind-input-events", () => {
+        [invoiceInput, returnInsuranceInput, insuredValueInput].forEach(
+          (input) => {
+            input.addEventListener("change", handleInputChange);
+            input.addEventListener("input", handleInputChange);
+          }
+        );
+        countryInput.addEventListener("change", () => {
+          updateChinaNotice();
+          updateOtherCountryState();
+          handleInputChange();
+        });
+        countryInput.addEventListener("input", () => {
+          updateChinaNotice();
+          updateOtherCountryState();
+        });
+        customerTypeGroup.addEventListener("change", () => {
+          updatePlanVisibility();
+          updatePlanImages();
+          handleInputChange();
+        });
+        removeDuplicateAdditionalInputSections();
+        categoryGroup.addEventListener("change", () => {
+          updateCategoryOtherState();
+          updateCategoryWarning();
+          handleInputChange();
+        });
+        categoryOtherText.addEventListener("input", handleInputChange);
+        usagePurposeInput.addEventListener("change", () => {
+          updateUsageOtherState();
+          handleInputChange();
+        });
+        usagePurposeOtherInput.addEventListener("input", handleInputChange);
+        planGroup.addEventListener("change", () => {
+          updatePlanImages();
+          handleInputChange();
+        });
+        boxList.addEventListener("change", handleInputChange);
+        boxList.addEventListener("input", handleInputChange);
+        boxList.addEventListener("focusout", (event) => {
+          enforceBoxInputDigitLimits(event.target);
+          handleInputChange();
+        });
       });
 
-      updatePlanVisibility();
-      updateCargoInsuranceState();
-      updateProductCountErrors();
-      updateChinaNotice();
-      updateOtherCountryState();
-      addBox();
-      updateProductCountErrors();
-      calculate();
-      setInitialSimulationDisplay();
-      setCtaVisibility(false);
-      setTotalVisibility(false);
-      setDisclaimerVisibility(false);
+      runInitStep("initial-ui-sync", () => {
+        updatePlanVisibility();
+        updatePlanImages();
+        updateCategoryOtherState();
+        updateCategoryWarning();
+        updateUsageOtherState();
+        updateCargoInsuranceState();
+        updateProductCountErrors();
+        updateChinaNotice();
+        updateOtherCountryState();
+        addBox();
+        updateProductCountErrors();
+        calculate();
+        setInitialSimulationDisplay();
+        setCtaVisibility(false);
+        setTotalVisibility(false);
+        setDisclaimerVisibility(false);
+        updateComparisonImage();
+        hideStartSimulationImage();
+      });
+
+      window.addEventListener("pageshow", () => {
+        updatePlanVisibility();
+        updatePlanImages();
+      });
+      setTimeout(() => {
+        updatePlanVisibility();
+        updatePlanImages();
+      }, 0);
       const initialValues = {
         country: countryInput.value,
         customerType: getCustomerType() || "",
+        categoryValues: getSelectedCategories(),
+        usagePurpose: usagePurposeInput.value,
+        usagePurposeOther: usagePurposeOtherInput.value,
         plan: getSelectedPlan(),
         invoiceIssue: invoiceInput.checked,
         returnInsurance: returnInsuranceInput.checked,
@@ -1203,6 +1731,18 @@
         document.querySelectorAll('input[name="plan"]').forEach((input) => {
           input.checked = input.value === initialValues.plan;
         });
+        Array.from(
+          categoryGroup.querySelectorAll('input[name="category"]')
+        ).forEach((input) => {
+          input.checked = initialValues.categoryValues.some((value) =>
+            value.startsWith(input.value)
+          );
+        });
+        categoryOtherText.value = initialValues.categoryValues
+          .find((value) => value.startsWith("その他（"))
+          ?.replace(/^その他（|）$/g, "") || "";
+        usagePurposeInput.value = initialValues.usagePurpose;
+        usagePurposeOtherInput.value = initialValues.usagePurposeOther;
         invoiceInput.checked = initialValues.invoiceIssue;
         returnInsuranceInput.checked = initialValues.returnInsurance;
         cargoInsuranceInput.checked = initialValues.cargoInsurance;
@@ -1210,6 +1750,10 @@
         resetBoxValues();
         updateProductCountErrors();
         updatePlanVisibility();
+        updatePlanImages();
+        updateCategoryOtherState();
+        updateCategoryWarning();
+        updateUsageOtherState();
         updateCargoInsuranceState();
         updateOtherCountryState();
         calculate();
@@ -1217,6 +1761,7 @@
         setCtaVisibility(false);
         setTotalVisibility(false);
         setDisclaimerVisibility(false);
+        hideStartSimulationImage();
         hasSimulationResult = false;
       };
 
@@ -1230,10 +1775,34 @@
         estimateModal.hidden = true;
       };
 
+      const openImageModal = (src, alt = "") => {
+        if (!imageModal || !imageModalPreview || !src) {
+          return;
+        }
+        imageModalPreview.src = src;
+        imageModalPreview.alt = alt;
+        imageModal.hidden = false;
+      };
+
+      const closeImageModalDialog = () => {
+        if (!imageModal || !imageModalPreview) {
+          return;
+        }
+        imageModal.hidden = true;
+        imageModalPreview.src = "";
+        imageModalPreview.alt = "";
+      };
+
       const isCompanyNameRequired = () =>
         COMPANY_NAME_REQUIRED_PLANS.includes(getSelectedPlan());
 
       const generatePdf = (companyName) => {
+        const logPdfStep = (label, details = {}) => {
+          const detailText = Object.entries(details)
+            .map(([key, value]) => `${key}=${value}`)
+            .join(", ");
+          logMessage(`[PDF] ${label}${detailText ? ` | ${detailText}` : ""}`);
+        };
         const formatDateForFilename = (date) => {
           const year = date.getFullYear();
           const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -1246,6 +1815,10 @@
         const fileTitle = safeCompanyName
           ? `Allynair見積書_${safeCompanyName}様_${fileDate}`
           : `Allynair見積書_${fileDate}`;
+        logPdfStep("generatePdf開始", {
+          companyNameLength: companyName.length,
+          fileTitle,
+        });
         const totalPrice = totalOutput.textContent;
         const estimateDate = new Date().toLocaleDateString("ja-JP");
         const companyLine = companyName
@@ -1260,9 +1833,14 @@
             : "ワールドship";
         const selectedCustomerType = getCustomerType()
           ? getCustomerType() === "corporate"
-            ? "法人"
-            : "個人"
+            ? "法人利用"
+            : "個人利用"
           : "未選択";
+        const selectedCategories = getSelectedCategories();
+        const selectedUsagePurpose =
+          usagePurposeInput.value === "その他" && usagePurposeOtherInput.value.trim()
+            ? `その他（${usagePurposeOtherInput.value.trim()}）`
+            : usagePurposeInput.value || "未選択";
         const boxSummary = Array.from(
           boxList.querySelectorAll(".box-card")
         ).map((box, index) => {
@@ -1284,7 +1862,9 @@
         });
         const inputRows = `
           <tr><th>送り先国</th><td>${selectedCountryLabel || "未選択"}</td></tr>
-          <tr><th>法人／個人</th><td>${selectedCustomerType}</td></tr>
+          <tr><th>送り主</th><td>${selectedCustomerType}</td></tr>
+          <tr><th>カテゴリー</th><td>${selectedCategories.join("、") || "未選択"}</td></tr>
+          <tr><th>利用用途</th><td>${selectedUsagePurpose}</td></tr>
           <tr><th>プラン</th><td>${selectedPlanLabel || "未選択"}</td></tr>
           <tr><th>箱情報</th><td>${boxSummary.join("<br />") || "未選択"}</td></tr>
           <tr><th>インボイス発行</th><td>${invoiceInput.checked ? "利用する" : "利用しない"}</td></tr>
@@ -1295,114 +1875,223 @@
         const receiptLine = latestCustomerNumber
           ? `<div class="receipt-no">顧客番号：${latestCustomerNumber}</div>`
           : "";
-        const previewWindow = window.open("", "_blank");
-        if (!previewWindow) {
-          return;
-        }
-        previewWindow.document.write(`
-          <!DOCTYPE html>
-          <html lang="ja">
-            <head>
-              <meta charset="utf-8" />
-              <title>${fileTitle}</title>
-              <style>
-                body {
+        const pdfContentHtml = `
+          <style>
+                .pdf-root {
                   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
                   padding: 32px;
                   color: #151515;
+                  background: #ffffff;
                 }
-                .header-row {
+                .pdf-root .header-row {
                   display: flex;
                   justify-content: space-between;
                   align-items: flex-start;
                   margin-bottom: 16px;
                 }
-                .receipt-no {
-                  font-size: 0.95rem;
+                .pdf-root .receipt-no {
+                  font-size: 1.14rem;
                   font-weight: 600;
                   margin-bottom: 6px;
                 }
-                h1 {
-                  font-size: 24px;
+                .pdf-root h1 {
+                  font-size: 29px;
                   margin: 0;
                   text-align: center;
                   flex: 1;
                 }
-                .company-name {
+                .pdf-root .company-name {
                   margin: 8px 0 0;
-                  font-size: 1rem;
+                  font-size: 1.2rem;
                   font-weight: 600;
                 }
-                .estimate-date {
-                  font-size: 0.95rem;
+                .pdf-root .estimate-date {
+                  font-size: 1.14rem;
                 }
-                p {
+                .pdf-root p {
                   margin: 0 0 16px;
                   line-height: 1.6;
-                  font-size: 0.9rem;
+                  font-size: 1.08rem;
                 }
-                .total-amount {
-                  font-size: 1.4rem;
+                .pdf-root .total-amount {
+                  font-size: 1.68rem;
                   font-weight: 700;
                   margin: 16px 0 20px;
                 }
-                table {
+                .pdf-root table {
                   width: auto;
                   border-collapse: collapse;
-                  font-size: 0.6rem;
+                  font-size: 0.72rem;
                 }
-                th, td {
+                .pdf-root th, .pdf-root td {
                   border: 1px solid #ccc;
                   padding: 6px;
                   text-align: left;
                 }
-                th {
+                .pdf-root th {
                   width: 220px;
                   background: #f5f5f5;
                 }
-                td {
+                .pdf-root td {
                   width: 220px;
                 }
-                .notes {
+                .pdf-root .notes {
                   margin-top: 24px;
-                  font-size: 0.85rem;
+                  font-size: 1.02rem;
                   line-height: 1.6;
                   list-style: none;
                   padding-left: 0;
                 }
-                .notes li {
+                .pdf-root .notes li {
                   margin-bottom: 8px;
                 }
-              </style>
-            </head>
-            <body>
-              ${receiptLine}
-              <div class="header-row">
-                <h1>見積書</h1>
-                <div class="estimate-date">見積り日: ${estimateDate}</div>
-              </div>
-              ${companyLine}
-              <p>この度は弊社サービス Allynair(アリネア)のお見積りをいただき、誠に有難うございます。</p>
-              <p>下記の通り概算費用を算出致しましたので、ご検討のほど宜しくお願い申し上げます。</p>
-              <div class="total-amount">合計見積り額（サーチャージ料込み）: ${totalPrice} 円</div>
-              <table>
-                ${inputRows}
-              </table>
-              <ul class="notes">
-                <li>※ 送料は実重量と容積重量を比較したうえで、数値が大きい方を基準に算出しております。</li>
-                <li>※サーチャージには下記の項目が含まれています。<br />① 燃料サーチャージ（必ず発生し、適用期間により変動します）<br />② その他追加サーチャージ（国際運送会社および適用期間により追加される費用です）</li>
-                <li>※本見積書の有効期限は、見積発行月の末日までとします。<br />なお、本申し込みが翌月となる場合は、価格の再算出（再見積）が必要となりますので、予めご了承ください。</li>
-                <li>※荷物の内容や国によっては送ることができない場合がございますので、詳しくはお問合せください。</li>
-                <li>※関税が発生した場合は、受取人側にてご請求が発生しますので、あらかじめご了承ください。</li>
-                <li>※弊社に送付いただいた荷物を、弊社にて再度【実重量】【容積重量】を図らせていただき、それを基に送料等を算出いたします。<br />そのため見積もり時と価格の変動が起きる場合がありますのでご了承ください。</li>
-                <li>※LOGIFITプランをご利用の場合は、弊社にて用意した段ボールに荷物を梱包し直したうえで、再度【実重量】および【容積重量】を計測し、送料を算出いたします。<br />そのため送料に変動が発生する場合がありますのでご了承ください。</li>
-              </ul>
-            </body>
-          </html>
-        `);
-        previewWindow.document.close();
-        previewWindow.focus();
-        previewWindow.print();
+          </style>
+          <div class="pdf-root">
+            ${receiptLine}
+            <div class="header-row">
+              <h1>見積書</h1>
+              <div class="estimate-date">見積り日: ${estimateDate}</div>
+            </div>
+            ${companyLine}
+            <p>この度は弊社サービス Allynair(アリネア)のお見積りをいただき、誠に有難うございます。</p>
+            <p>下記の通り概算費用を算出致しましたので、ご検討のほど宜しくお願い申し上げます。</p>
+            <div class="total-amount">合計見積り額（サーチャージ料込み）: ${totalPrice} 円</div>
+            <table>
+              ${inputRows}
+            </table>
+            <ul class="notes">
+              <li>※ 送料は実重量と容積重量を比較したうえで、数値が大きい方を基準に算出しております。</li>
+              <li>※サーチャージには下記の項目が含まれています。<br />① 燃料サーチャージ（必ず発生し、適用期間により変動します）<br />② その他追加サーチャージ（国際運送会社および適用期間により追加される費用です）</li>
+              <li>※本見積書の有効期限は、見積発行月の末日までとします。<br />なお、本申し込みが翌月となる場合は、価格の再算出（再見積）が必要となりますので、予めご了承ください。</li>
+              <li>※荷物の内容や国によっては送ることができない場合がございますので、詳しくはお問合せください。</li>
+              <li>※関税が発生した場合は、受取人側にてご請求が発生しますので、あらかじめご了承ください。</li>
+              <li>※弊社に送付いただいた荷物を、弊社にて再度【実重量】【容積重量】を図らせていただき、それを基に送料等を算出いたします。<br />そのため見積もり時と価格の変動が起きる場合がありますのでご了承ください。</li>
+              <li>※LOGIFITプランをご利用の場合は、弊社にて用意した段ボールに荷物を梱包し直したうえで、再度【実重量】および【容積重量】を計測し、送料を算出いたします。<br />そのため送料に変動が発生する場合がありますのでご了承ください。</li>
+            </ul>
+          </div>
+        `;
+
+        if (typeof html2canvas !== "function" || !window.jspdf?.jsPDF) {
+          logPdfStep("PDFライブラリ未読み込み");
+          alert("PDFライブラリの読み込みに失敗しました。時間をおいて再度お試しください。");
+          return;
+        }
+
+        const pdfContainer = document.createElement("div");
+        pdfContainer.style.position = "fixed";
+        pdfContainer.style.top = "0";
+        pdfContainer.style.left = "-10000px";
+        pdfContainer.style.width = "794px";
+        pdfContainer.style.background = "#ffffff";
+        pdfContainer.style.pointerEvents = "none";
+        pdfContainer.style.zIndex = "2147483647";
+        pdfContainer.innerHTML = pdfContentHtml;
+        document.body.appendChild(pdfContainer);
+        logPdfStep("一時コンテナ追加", {
+          containerWidth: pdfContainer.offsetWidth,
+          containerHeight: pdfContainer.offsetHeight,
+        });
+
+        const pdfRoot = pdfContainer.querySelector(".pdf-root");
+        if (!pdfRoot) {
+          pdfContainer.remove();
+          logPdfStep("pdf-root取得失敗");
+          alert("PDF生成用のレイアウト作成に失敗しました。");
+          return;
+        }
+        const pdfImages = Array.from(pdfRoot.querySelectorAll("img"));
+        logPdfStep("pdf-root取得成功", {
+          rootWidth: pdfRoot.offsetWidth,
+          rootHeight: pdfRoot.offsetHeight,
+          scrollHeight: pdfRoot.scrollHeight,
+          imageCount: pdfImages.length,
+        });
+        if (pdfImages.length > 0) {
+          const missingSrcCount = pdfImages.filter((image) => !image.src).length;
+          logPdfStep("pdf内画像状態", {
+            missingSrcCount,
+          });
+        }
+
+        requestAnimationFrame(() => {
+          const pdfOptions = {
+            filename: `${fileTitle}.pdf`,
+            marginMm: 10,
+            canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          };
+          logPdfStep("PDF生成開始", {
+            filename: pdfOptions.filename,
+            scale: pdfOptions.canvas.scale,
+          });
+          html2canvas(pdfRoot, pdfOptions.canvas)
+            .then((canvas) => {
+              const context = canvas.getContext("2d");
+              const centerX = Math.floor(canvas.width / 2);
+              const centerY = Math.floor(canvas.height / 2);
+              const pixel = context?.getImageData(centerX, centerY, 1, 1)?.data;
+              let nonWhiteSamples = 0;
+              if (context) {
+                const sampleCols = 8;
+                const sampleRows = 10;
+                for (let row = 0; row < sampleRows; row += 1) {
+                  for (let col = 0; col < sampleCols; col += 1) {
+                    const x = Math.floor((canvas.width - 1) * (col / (sampleCols - 1)));
+                    const y = Math.floor((canvas.height - 1) * (row / (sampleRows - 1)));
+                    const data = context.getImageData(x, y, 1, 1).data;
+                    const isWhite =
+                      data[0] === 255 &&
+                      data[1] === 255 &&
+                      data[2] === 255 &&
+                      data[3] === 255;
+                    if (!isWhite) {
+                      nonWhiteSamples += 1;
+                    }
+                  }
+                }
+              }
+              const centerPixel = pixel
+                ? `${pixel[0]}-${pixel[1]}-${pixel[2]}-${pixel[3]}`
+                : "取得失敗";
+              logPdfStep("canvas生成成功", {
+                canvasWidth: canvas.width,
+                canvasHeight: canvas.height,
+                centerPixel,
+                nonWhiteSamples,
+              });
+              const { jsPDF } = window.jspdf;
+              const pdf = new jsPDF(pdfOptions.jsPDF);
+              const pageWidth = pdf.internal.pageSize.getWidth();
+              const pageHeight = pdf.internal.pageSize.getHeight();
+              const printableWidth = pageWidth - pdfOptions.marginMm * 2;
+              const printableHeight = pageHeight - pdfOptions.marginMm * 2;
+              const renderedHeight = (canvas.height * printableWidth) / canvas.width;
+              const imageData = canvas.toDataURL("image/jpeg", 0.98);
+              pdf.addImage(
+                imageData,
+                "JPEG",
+                pdfOptions.marginMm,
+                pdfOptions.marginMm,
+                printableWidth,
+                Math.min(renderedHeight, printableHeight)
+              );
+              pdf.save(pdfOptions.filename);
+              logPdfStep("save成功", {
+                printableWidth,
+                printableHeight,
+                renderedHeight,
+              });
+            })
+            .catch((error) => {
+              logPdfStep("save失敗");
+              logErrorDetails("PDF作成エラー", error);
+              alert("PDF作成に失敗しました。時間をおいて再度お試しください。");
+            })
+            .finally(() => {
+              pdfContainer.remove();
+              logPdfStep("一時コンテナ削除");
+            });
+        });
       };
 
       estimateButton.addEventListener("click", () => {
@@ -1423,10 +2112,13 @@
       retryButton.addEventListener("click", () => {
         resultScreen.hidden = true;
         inputScreen.hidden = false;
+        updatePlanImages();
         if (simulateRow) {
           simulateRow.hidden = false;
         }
         setInputError("");
+        updateComparisonImage();
+        hideStartSimulationImage();
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
@@ -1437,10 +2129,35 @@
         closeEstimateModal();
       });
 
-      simulateButton.addEventListener("click", async () => {
-        if (logOutput) {
-          logOutput.textContent = "";
+      if (closeImageModal) {
+        closeImageModal.addEventListener("click", closeImageModalDialog);
+      }
+      if (imageModal) {
+        imageModal.addEventListener("click", (event) => {
+          if (event.target === imageModal) {
+            closeImageModalDialog();
+          }
+        });
+      }
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLImageElement)) {
+          return;
         }
+        if (
+          !target.classList.contains("plan-image") &&
+          !target.classList.contains("comparison-image")
+        ) {
+          return;
+        }
+        if (target.hidden || !target.src) {
+          return;
+        }
+        openImageModal(target.src, target.alt);
+      });
+
+      simulateButton.addEventListener("click", async () => {
+        hideStartSimulationImage();
         setInputError("");
         if (simulateRow) {
           simulateRow.hidden = true;
@@ -1452,11 +2169,13 @@
           {
             field: countryInput,
             label: "送り先国",
+            message: "送り先国を選択してください。",
             isInvalid: () => !isValidCountry,
           },
           {
             field: customerTypeGroup,
-            label: "法人／個人",
+            label: "送り主",
+            message: "送り主を選択してください。",
             isInvalid: () => !getCustomerType(),
           },
         ];
@@ -1464,7 +2183,34 @@
           requiredInputs.push({
             field: planGroup,
             label: "プラン",
+            message: "プランを選択してください。",
             isInvalid: () => !getSelectedPlan(),
+          });
+        }
+        requiredInputs.push({
+          field: categoryGroup,
+          label: "カテゴリー",
+          message: "カテゴリーを1つ以上選択してください。",
+          isInvalid: () => getSelectedCategories().length === 0,
+        });
+        requiredInputs.push({
+          field: usagePurposeInput,
+          label: "利用用途",
+          message: "利用用途を選択してください。",
+          isInvalid: () => !(usagePurposeInput?.value || ""),
+        });
+        if (categoryOtherCheck?.checked) {
+          requiredInputs.push({
+            field: categoryOtherText,
+            label: "カテゴリー（その他）",
+            isInvalid: (value) => !value?.trim(),
+          });
+        }
+        if (usagePurposeInput?.value === "その他") {
+          requiredInputs.push({
+            field: usagePurposeOtherInput,
+            label: "利用用途（その他）",
+            isInvalid: (value) => !value?.trim(),
           });
         }
         const boxCards = Array.from(boxList.querySelectorAll(".box-card"));
@@ -1541,7 +2287,9 @@
           isInvalid(field?.value)
         );
         if (missingField) {
-          setInputError(`${missingField.label}を入力してください。`);
+          setInputError(
+            missingField.message || `${missingField.label}を入力してください。`
+          );
           if (simulateRow) {
             simulateRow.hidden = false;
           }
@@ -1587,7 +2335,22 @@
         const payload = {
           destinationCountry: countryInput.value,
           customerType: getCustomerType(),
+          categories: getSelectedCategories(),
+          usagePurpose:
+            usagePurposeInput.value === "その他"
+              ? usagePurposeOtherInput.value.trim()
+                ? `その他（${usagePurposeOtherInput.value.trim()}）`
+                : "その他"
+              : usagePurposeInput.value,
           plan: getCustomerType() === "corporate" ? getSelectedPlan() : "worldShip",
+          category: getSelectedCategories().join("/"),
+          usagePurpose:
+            usagePurposeInput.value === "その他"
+              ? usagePurposeOtherInput.value.trim()
+                ? `その他（${usagePurposeOtherInput.value.trim()}）`
+                : "その他"
+              : usagePurposeInput.value,
+          boxCount: boxDetails.length,
           invoiceIssue: invoiceInput.checked,
           returnInsurance: returnInsuranceInput.checked,
           cargoInsurance: cargoInsuranceInput.checked,
@@ -1597,13 +2360,23 @@
           boxDetails,
         };
 
+        if (inputScreen) {
+          inputScreen.hidden = false;
+        }
+        if (planImageSection) {
+          planImageSection.hidden = true;
+        }
         resultScreen.hidden = false;
+        if (planImageSection) {
+          planImageSection.hidden = true;
+        }
         setCtaVisibility(false);
         setTotalVisibility(true);
         setDisclaimerVisibility(true);
 
         try {
           setSimulationPending();
+          totalRow?.scrollIntoView({ behavior: "smooth", block: "start" });
           logMessage(`送信先URL: ${GAS_ENDPOINT}`);
           logMessage(`ブラウザ: ${navigator.userAgent}`);
           logMessage(`ページURL: ${window.location.href}`);
